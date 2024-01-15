@@ -1,0 +1,116 @@
+<!-- 
+Developer Name  = Shelake Kalyani.
+Program Name    = Javascript program to create Age Calculator.
+Technology Used = HTML,CSS,Javascript
+Date            = 30-11-2022
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Age Calculator</title>
+
+  <style type="text/css">
+    .Box{
+      height: 550px;
+      width: 100%;
+      padding: 20p1;
+      background-color: cyan;
+      justify-content: center;
+      text-align: center;
+      background-image: url('https://www.heartfoundation.org.au/getmedia/da58c9f7-d4ba-42a6-bf65-9c38f6911b22/cardiac_blues.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .Box h1{
+      padding-top: 70px;
+      color: red;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .bd{
+      height: 50px;
+      width: 140px;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .but{
+      height: 40px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="col-md-12">
+    <div class="Box">
+      <h1> <i>* choose  birth date *</i></h1>
+      <input type="date" name=""class="bd" id="DOB">
+      <br><br><br><button onclick="agecal()"id="" class="but">submit</button>
+      <h2 id="result" style="text-align: center;"></h2>
+    </div>
+  </div>
+  
+  
+
+	<script type="text/javascript">
+
+    function agecal()
+    {
+      var user = document.getElementById("DOB").value;
+      var dob = new Date(user);
+
+      var da = new Date();
+
+      var date = dob.getDate();
+      var month = dob.getMonth();     
+      var year = dob.getFullYear();
+
+      var date1 = da.getDate();
+      var month1 = Number(da.getMonth()+1);
+      var year1 = da.getFullYear();
+
+
+    var U_year = year1 - year;     //2022-2004
+
+
+    if (month1 >= month)
+      //get months when current month is greater
+      var U_Month = month1 - month;          //11-12 = -1
+    else {
+      year1--;                //2003
+      var U_Month = 12 + month1 - month;   //12 + 11 - 12  23-11= 12
+    }
+    
+
+
+    if (date1 >= date)
+      //get days when the current date is greater
+      var U_Age = date1 - date;
+    else {
+      month1--;
+      var U_Age = 31 + date1 - date;
+
+      if (month1 < 0) {
+        month1 = 11;
+        year1--;
+      }
+    }
+    // document.write(dateAge);
+
+    document.getElementById("result").innerHTML =  
+             "You are : " + U_year + " years , "+U_Month+" Month and "+U_Age +" Days old.";
+    }
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sample Demo</title>
+	<style type="text/css">
+		.box{
+			height: 20px;
+			width: 20px;
+			float: left;
+			background-color: red;
+			margin: 0px;
+		}
+	</style>
+</head>
+<body>
+
+	
+
+	<script type="text/javascript">
+
+		for(i=0;i<1701;i++)
+		{
+			document.write(`<div class="box" onmouseover="changecolor(this)"></div>`);
+		   
+		}
+
+		// function changecolor(elmt)
+		// {
+		// 	elmt.style.backgroundColor = 'blue';
+
+		// 	setTimeout(function(){
+		// 		elmt.style.backgroundColor = 'red';
+		// 	},2000);
+		// }
+
+
+		function changecolor(elmt)
+		{
+			elmt.style.backgroundColor = 'blue';    //onmouseover kelyavr blue color
+
+			setTimeout(clroriginal,2000);			//2sec nantar clroriginal() la call
+
+			function clroriginal(){
+				elmt.style.backgroundColor = 'red';
+			}
+		}
+	</script>
+
+</body>
+</html> 
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sample Demo</title>
+	<style type="text/css">
+		.box{
+			height: 100px;
+			width: 100px;
+			float: left;
+			background-color: red;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		for(i=0;i<10;i++)
+		{
+			document.write(`<div class="box" onclick="changecolor(this)"></div>`);
+		   
+		}
+
+		function changecolor(elmt)
+		{
+			elmt.style.backgroundColor = 'blue';    //onclick blue color
+
+		}
+	</script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- console.table
+console.error
+console.warning

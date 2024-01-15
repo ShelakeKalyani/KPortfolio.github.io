@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brightness</title>
+	<style type="text/css">
+		.img{
+			height: 600px;
+			width: 70%;
+			/*border: 2px solid black;*/
+			background-color: seashell;
+			float: left;
+		}
+		label{
+			margin-left: 100px;
+		}
+		.options{
+			height: 600px;
+			width: 30%;
+			/*border: 1px solid black;*/
+			background-color: black;
+			float: left;
+			color: white;
+			overflow-y: scroll;
+		}
+		.options label{
+			color: white;
+			font-size: 20px;
+		}
+		.size{
+			font-size: 20px;
+			/*text-align: center;*/
+			margin-left: 150px;
+			margin-top: 20px;
+		}
+
+		#imgtag{
+			margin-top: 40px;
+			height: 75%;
+			width: 75%;
+		}
+		
+		.Basic{
+			color: red;
+			margin-left: 20px;
+			font-size: 25px;
+			font-weight: bold;
+		}
+
+		.options label{
+			margin-left: 20px;
+			margin-right: 30px;
+		}
+		.options input{
+			margin-right: 20px;
+		}
+		.image_main{
+			width: 500px;
+			height: 400px;
+			position: relative;
+		}
+		.text_pos{
+			position: absolute;
+			left: 350px;
+			top: 190px;
+			color: white;
+			font-size: 30px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+	
+<div class="col-md-6" style="text-align: center;">
+	<div class="img">
+		<br/><br/>
+			<label><i><b>Enter image url:</b></i></label>
+			<input type="text" name="" id="img_url">
+			<button onclick="applyImage()">Search</button>
+		
+
+		<!-- <div class="" id="imgtag" width="100%" height="100%"> -->
+			<img src="https://assets.winni.in/c_limit,dpr_1,fl_progressive,q_80,w_1000/55603_white-small-teddy-bear.jpeg" height="400px" width="400px" id="imgtag">
+
+		 <div class="text_pos" id="text_here">
+		 	<!-- Hello -->
+		 </div>
+		 
+		<!-- </div>	 -->
+	</div>
+</div>
+
+
+<div class="col-md-6">
+	<div class="options">
+
+		<p class="Basic">Basic Adjustments</p>
+		<label>Brightness:</label>
+		<input type="range" name="" min="0" max="200" onchange="brightChange()" id="bright"><b id="BrightI">100%</b>
+		<br><br>
+
+
+		<label style="margin-right: 48px;">Contrast:</label>
+		<input type="range" name="" min="0" max="200" onchange="contrastChange()" id="contrast"><b id="ContraI">100%</b>
+		<br><br>
+
+
+		<label style="margin-right: 35px;">Saturation:</label>
+		<input type="range" name="" min="0" max="200" onchange="satChange()" id="satu"><b id="satuI">100%</b>
+		<br><br>
+
+		<label style="margin-right: 81px;">Blur:</label>
+		<input type="range" name="" min="0" max="200" onchange="blurChange()" id="blur1"><b id="BlurI">0px</b>
+		<br><br>
+
+		<label style="margin-right: 52px;">Opacity:</label>
+		<input type="range" name="" min="0" max="200" onchange="opaChange()" id="opac"><b id="OpaI">100%</b>
+		<br><br>
+
+		<!-- Transform -->
+		<p class="Basic">Transforms:</p>
+		<label style="margin-right: 64px;">Rotate:</label>
+		<input type="range" name="" min="0" max="200" onchange="rotateChange()" id="rotate1"><b id="rotateI">100%</b>
+		<br><br>
+
+		<p class="Basic">Text Input:</p>
+		<label>Enter Text:</label>
+		<input type="text" name="" id="textinp"><br><br>
+		<center><button onclick="addtext()">Add text</button>
+		<button onclick="removeText()">Remove text</button></center><br>
+
+		<label>Text Color:</label>
+		<input type="text" id="inpColor" onkeyup="changeColor()"><br><br>
+
+		<label style="margin-right:10px;">Shadow Color:</label>
+		<input type="text" id="inpShadow" onkeyup="changeShadow()"><br><br>
+
+		<label>Text Size:</label>
+		<input type="range" name="" min="0" max="200" onchange="sizeChange()" id="Tsize"><b id="sizeC">30px</b>
+		<br><br>
+
+		<label>Text Move X:</label>
+		<input type="range" name="" min="0" max="200" onchange="movexChange()" id="Xmove"><b id="valChange">30px</b>
+		<br><br>
+
+		<label>Text Move Y:</label>
+		<input type="range" name="" min="0" max="200" onchange="moveyChange()" id="Ymove"><b id="valChange1">30px</b>
+		<br><br>
+
+	</div>
+</div>
+
+	<script type="text/javascript">
+		function applyImage()
+		{
+			var iu = document.getElementById('img_url');
+			var it = document.getElementById('imgtag');
+			it.src = iu.value;
+		}
+
+		function brightChange(){
+			var inp = document.getElementById('bright').value;
+			var b = document.getElementById('BrightI');
+			b.innerHTML = inp+'%';
+
+			var i1 = document.getElementById('bright').value;
+			var out = document.getElementById('imgtag');
+			out.style.filter = 'brightness('+i1+'%)';
+		}
+
+		function contrastChange()
+		{
+			var inp = document.getElementById('contrast').value;
+			var b = document.getElementById('ContraI');
+			b.innerHTML = inp+'%';
+
+
+			var i1 = document.getElementById('contrast').value;
+			var out = document.getElementById('imgtag');
+			out.style.filter = 'contrast('+i1+'%)';
+		}
+
+		function satChange()
+		{
+			var inp = document.getElementById('satu').value;
+			var b = document.getElementById('satuI');
+			b.innerHTML = inp+'%';
+
+			var i1 = document.getElementById('satu').value;
+			var out = document.getElementById('imgtag');
+			out.style.filter = 'saturate('+i1+'%)';
+		}
+
+		function blurChange()
+		{
+			var inp = document.getElementById('blur1').value;
+			var b = document.getElementById('BlurI');
+			b.innerHTML = inp+'%';
+
+			var i1 = document.getElementById('blur1').value;
+			var out = document.getElementById('imgtag');
+			out.style.filter = 'blur('+i1+'px)';
+		}
+
+		function opaChange()
+		{
+			var inp = document.getElementById('opac').value;
+			var b = document.getElementById('OpaI');
+			b.innerHTML = inp+'%';
+
+			var i1 = document.getElementById('opac').value;
+			var out = document.getElementById('imgtag');
+			out.style.filter = 'opacity('+i1+'%)';
+		}
+
+		function rotateChange(){
+
+			var inp = document.getElementById('rotate1').value;
+			var b = document.getElementById('rotateI');
+			b.innerHTML = inp+'%';
+
+			var i1 = document.getElementById('rotate1').value;
+			var out = document.getElementById('imgtag');
+			out.style.transform = 'rotate('+i1+'deg)';
+		}
+
+		//Text
+		function addtext()
+		{
+			var text_user = document.getElementById('textinp').value;
+			var add = document.getElementById('text_here');
+			add.innerHTML = add.innerHTML+" "+text_user;
+
+			// var text_user = document.getElementById('textinp').value;
+			// var add = document.getElementById('text_here');
+			// var span = `<span class="textSpan">${text_user}</span>`
+			// add.innerHTML = add.innerHTML+" "+span;
+		}
+
+		function removeText()
+		{
+			// var ts = document.getElementsByClassName('textSpan');
+			// // ts.pop();       //pop for array but it is a HTMLcollection
+			// var spantags = "";
+			// for(i=0;i<ts.length-1;i++)
+			// {
+			// 	span = `<span class="textSpan">${ts[i].innerHTML}</span>`
+			//     spantags = spantags + span;
+			// }
+
+			// var add = document.getElementById('text_here');
+			// add.innerHTML = spantags;
+
+			var removeT = document.getElementById('text_here');
+			removeT.innerHTML = " ";
+		}
+
+		function changeColor()
+		{
+			var text_user = document.getElementById('inpColor').value;
+			document.getElementById('text_here').style.color=text_user;
+		}
+
+		function changeShadow()
+		{
+			var text_user = document.getElementById('inpShadow').value;
+			// alert(text_user);
+			document.getElementById('text_here').style.textShadow='3px 3px '+text_user;
+
+		}
+
+		function sizeChange()
+		{
+			var inp = document.getElementById('Tsize').value;
+			var b = document.getElementById('sizeC');
+			b.innerHTML = inp+'px';
+
+			var a = document.getElementById('Tsize').value;
+			document.getElementById('text_here').style.fontSize=a+'px';
+		}
+
+		function movexChange()
+		{
+			var a = document.getElementById('Xmove').value;
+			var b = document.getElementById('valChange');
+			b.innerHTML = a+'px';
+
+			   if(a>100)
+			   {
+			       document.getElementById('text_here').style.marginLeft=a+'px';
+			   }
+			   else
+			   {
+			       document.getElementById('text_here').style.marginLeft=-a+'px';
+			   }
+		}
+
+		function moveyChange()
+		{
+			var a = document.getElementById('Ymove').value;
+			var b = document.getElementById('valChange1');
+			b.innerHTML = a+'px';
+
+			   if(a>100)
+			   {
+			       document.getElementById('text_here').style.marginTop=a+'px';
+			   }
+			   else
+			   {
+			       document.getElementById('text_here').style.marginTop=-a+'px';
+			   }
+		}
+
+
+	</script>
+	
+
+</body>
+</html>

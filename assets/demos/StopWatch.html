@@ -1,0 +1,123 @@
+<!-- 
+Developer Name  = Shelake Kalyani.
+Program Name    = Stop Watch.
+Technology Used = HTML,CSS,Javascript
+Date            = 03-12-2022
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stopwatch</title>
+	<style type="text/css">
+		.img_pos{
+			height: 300px;
+			width: 300px;
+			margin: 40px;
+			float: left;
+		}
+
+		#time_box{
+			float: left;
+			margin-top: 170px;
+			text-align: center;
+			margin-left: -240px;
+			font-size: 30px;
+			color: blue;
+		}
+
+		.btn_des{
+			margin-top: 120px;
+			margin-left: 50px;
+			height: 30px;
+			width: 100px;
+			background-color: lime;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+
+		.btn2{
+			height: 30px;
+			width: 100px;
+			margin-left: 10px;
+			background-color: red;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+
+		#game_title{
+			margin-top: 200px;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			color:saddlebrown;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body style="background-color:azure;">
+
+	<div class="col-md-6">
+		<img src="https://media.istockphoto.com/id/1176645523/vector/black-empty-clock-isolated-on-white-for-pattern-and-design.jpg?s=612x612&w=0&k=20&c=KbVtZd6GwY4H1qa1ynUSHPPHYiH_zh5-rwCA20YFK1U=" class="img_pos">
+		<div id="time_box">00:00:00</div><br/>
+	</div>
+
+	
+
+	<div class="col-md-6">
+		<button onclick="startWatch()" class="btn_des">Start</button>
+	<button onclick="stopWatch()" class="btn2">Stop</button>
+	</div>
+	
+	
+	<!-- <br/> -->
+	<h1 id="game_title">Stopwatch</h1>
+
+	<script type="text/javascript">
+		var minutes = 0;
+		var milisec = 0;
+		var sec = 0;
+		var interval;
+
+		function startWatch()
+		{
+			clearInterval(interval);
+			 interval = setInterval(function()
+				{
+					if(sec<10)
+					{
+						sec = "0"+Number(sec);
+					}
+					if(milisec<10)
+					{
+						milisec = "0"+Number(milisec);
+					}
+					if(minutes<10)
+					{
+						minutes = "0"+Number(minutes);
+					}
+
+					document.getElementById('time_box').innerHTML = minutes+":"+sec+":"+milisec;
+					if(milisec==100)
+					{
+						sec++;
+						milisec = 0;
+					}
+					if(sec==60)
+					{
+						minutes++;
+						sec = 0;
+					}
+					milisec++;
+
+				},10)
+		}
+
+		function stopWatch()
+		{
+			clearInterval(interval);
+		}
+	</script>
+</body>
+</html>

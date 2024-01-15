@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Change Image</title>
+
+
+	<style type="text/css">
+		.main_box{
+			height: 100%;
+			width: 100%;
+			border: 2px dotted black;
+			background-color: #e5ebf2;
+			text-align: center;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		#imgtag{
+			margin-top: 50px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<center><h2 style="font-style: italic;">Change Image By URL</h2></center>
+
+	<div class="col-md-12">
+		<div class="main_box">
+
+			<input type="text" name="" id="img_url">
+			<button onclick="applyImage()">Apply Image</button><br/><br/>
+			
+	
+			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTKIsicCtxelv8Biy8LwNrp1j9UWfu9aNy1w&usqp=CAU" height="300px" width="300px" id="imgtag">
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		function applyImage()
+		{
+			var iu = document.getElementById('img_url');
+			var it = document.getElementById('imgtag');
+			it.src = iu.value;
+		}
+	</script>
+
+</body>
+</html>
