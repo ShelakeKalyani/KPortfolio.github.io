@@ -900,6 +900,15 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
     margin-left: 90px;
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 767px){
+   .section-heading h2{
+	padding-bottom: 30px !important;
+   }
+   .about-content{
+	padding-top: 30px !important;
+   }
+}
 /*========================Thank you=================
 
 
