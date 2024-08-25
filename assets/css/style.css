@@ -902,12 +902,24 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 }
 
 @media only screen and (max-width: 767px){
+    .about{
+	padding: 50px 0 50px !important;
+    }
    .section-heading h2{
 	padding-bottom: 30px !important;
    }
    .about-content{
 	padding-top: 30px !important;
    }
+  .single-about-add-info{
+      margin: 15px !important;
+  }
+.education{
+  padding-top: 0px !important;		
+}
+.education-horizontal-timeline{
+  padding-top: 20px !important;		
+ }
 }
 /*========================Thank you=================
 
